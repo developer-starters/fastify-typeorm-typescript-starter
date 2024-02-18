@@ -1,7 +1,8 @@
 // This file contains code that we reuse between our tests.
-const helper = require('fastify-cli/helper.js')
-import * as path from 'path'
 import * as test from 'node:test'
+import * as path from 'path'
+
+const helper = require('fastify-cli/helper')
 
 export type TestContext = {
   after: typeof test.after
