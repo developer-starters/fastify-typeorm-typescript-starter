@@ -1,0 +1,60 @@
+version: '3'
+services:
+  rdtb_cache:
+    container_name: rdtb_cache
+    hostname: redis
+    image: redis
+    networks:
+      - rdtb_network
+
+  rdtb_cache_ui:
+    container_name: rdtb_cache_ui
+    hostname: rdtb_cache_ui
+    image: rediscommander/redis-commander:latest
+    build: .
+    restart: always
+    environment:
+    - REDIS_HOSTS=local:redis:6379
+    ports:
+    - 8081:8081
+    networks:
+      - rdtb_network
+
+  rdtb_db:
+    image: postgres
+    container_name: rdtb_db
+    hostname: db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: rdtb_user
+      POSTGRES_PASSWORD: rdtb_password
+      POSTGRES_DB: rdtb_db
+    volumes:
+      - rdtb_data:/var/lib/postgresql/data
+    networks:
+      - rdtb_network
+  
+  rdtb_db_ui:
+    image: dpage/pgadmin4
+    container_name: rdtb_db_ui
+    hostname: rdtb_db_ui
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: abhi.aec89@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: rdtb_password
+    volumes:
+      - rdtb_db_ui_data:/var/lib/pgadmin
+    networks:
+      - rdtb_network
+
+volumes:
+  rdtb_data:
+  rdtb_db_ui_data:
+
+networks:
+  rdtb_network:
+    driver: bridge
