@@ -1,5 +1,6 @@
 import { join } from 'path';
 
+//eslint-disable-next-line
 import AutoLoad, {AutoloadPluginOptions} from '@fastify/autoload';
 import { FastifyPluginAsync, FastifyServerOptions } from 'fastify';
 
