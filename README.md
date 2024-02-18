@@ -28,3 +28,4 @@ Run the test cases.
 - For Redis checkout [this](https://redis.io/)
 - For Tedis checkout [this](https://tedis.silkjs.org/)
 - For MinIO Object Storage check [this](https://min.io/)
+- For MinIO JS Client check [this](https://min.io/docs/minio/linux/developers/javascript/minio-javascript.html)
