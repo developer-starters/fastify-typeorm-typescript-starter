@@ -1,5 +1,24 @@
 version: '3'
+
 services:
+  tfts:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tfts
+    container_name: tfts
+    restart: unless-stopped
+    environment:
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    networks:
+      - tfts_network
+    command: npm run dev
+
   tfts_cache:
     container_name: tfts_cache
     hostname: redis
@@ -54,6 +73,7 @@ services:
 volumes:
   tfts_data:
   tfts_db_ui_data:
+  node_modules:
 
 networks:
   tfts_network:
