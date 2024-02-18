@@ -26,4 +26,5 @@ Run the test cases.
 - For Postgres checkout [PostgreSQL](https://www.postgresql.org/)
 - For RabbitMQ checkout [RabbitMQ](https://www.rabbitmq.com/) and [this](https://medium.com/nerd-for-tech/event-driven-architecture-with-typescript-and-rabbitmq-e9bafee5ab2d) and [this](https://blog.yarsalabs.com/learning-rabbitmq-with-typescript/)
 - For Redis checkout [this](https://redis.io/)
+- For Tedis checkout [this](https://tedis.silkjs.org/)
 - For MinIO Object Storage check [this](https://min.io/)
