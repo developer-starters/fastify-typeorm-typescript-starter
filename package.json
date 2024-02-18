@@ -11,6 +11,7 @@
     "start": "npm run build:ts && fastify start -l info dist/app.js",
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
+    "lint": "eslint **/*.ts",
     "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
     "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js"
   },
@@ -27,9 +28,15 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.4",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
     "c8": "^9.0.0",
     "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
     "fastify-tsconfig": "^2.0.0",
+    "prettier": "^3.2.5",
     "ts-node": "^10.4.0",
     "typescript": "^5.2.2"
   }
